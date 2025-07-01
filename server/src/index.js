@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import authRoutes from "./routes/auth.route.js";
+import messageRoutes from "./routes/message.routes.js";
 import { connectDB } from "./lib/db.js";
 dotenv.config();
 
@@ -18,6 +19,7 @@ app.use(
 );
 
 app.use("/api/auth", authRoutes);
+app.use("/api/message", messageRoutes);
 
 app.listen(port, () => {
   console.log("server running");
