@@ -1,19 +1,22 @@
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import Chat from "./pages/chat";
-import Profile from "./pages/profile";
-import Auth from "./pages/auth";
-
+import Navbar from "./components/Navbar";
+import { Routes, Route } from "react-router-dom";
+import LoginPage from "./pages/LoginPage";
+import SignUpPage from "./pages/SignUpPage";
+import ProfilePage from "./pages/ProfilePage";
+import SettingsPage from "./pages/SettingsPage";
+import HomePage from "./pages/HomePage";
 function App() {
   return (
-    <BrowserRouter>
+    <div>
+      <Navbar />
       <Routes>
-        <Route path="/chat" element={<Chat />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/auth" element={<Auth />} />
-
-        <Route path="*" element={<Navigate to="/auth" />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/settings" element={<SettingsPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
       </Routes>
-    </BrowserRouter>
+    </div>
   );
 }
 
