@@ -53,7 +53,7 @@ export const sendMessage = async (req, res) => {
     await newMessage.save();
     // todo: realtime functionality here
     res.status(201).json(newMessage);
-  } catch {
+  } catch (error) {
     console.error("Error in send message controller: ", error.message);
     res.status(500).json({ error: "internal server error" });
   }
