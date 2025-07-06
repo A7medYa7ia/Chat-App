@@ -97,9 +97,10 @@ export const updateProfile = async (req, res) => {
       { profilePic: uploadResponse.secure_url },
       { new: true }
     );
-    res.status(200).json({ updateUser });
+    res.status(200).json(updateUser);
   } catch (error) {
     console.log("error in updateProfile controller", error);
+    return res.status(500).json({ message: "Internal server error" });
   }
 };
 export const checkAuth = async (req, res) => {
